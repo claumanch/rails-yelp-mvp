@@ -1,0 +1,18 @@
+<div class="container">
+
+<h1>All Restaurants</h1>
+<div class="add-resto-btn">
+  <%= link_to "Add resto", new_restaurant_path, class: "btn btn-dark" %>
+</div>
+<br>
+<ul>
+<% @restaurants.each do |resto| %>
+
+  <li>
+    <%= link_to resto.name, restaurant_path(resto) %>
+  </li>
+
+<% end %>
+</ul>
+
+</div>

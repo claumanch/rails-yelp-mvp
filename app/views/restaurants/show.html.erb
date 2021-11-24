@@ -1,0 +1,37 @@
+<%= link_to "Back", restaurants_path, class: "btn btn-outline-danger" %>
+<br>
+<h1><%= @restaurant.name %></h1>
+
+<div class="resto-details">
+  <h4><strong>Restaurant details</strong></h4>
+  <br>
+  <p>🌮 <%= @restaurant.category.capitalize %></p>
+  <p>📍 <%= @restaurant.address %></p>
+  <p>📞 <%= @restaurant.phone_number %></p>
+</div>
+
+<br>
+<%= link_to "Add Review", new_restaurant_review_path(@restaurant), class: "add-review btn btn-dark" %>
+<br>
+
+<br>
+
+<% @restaurant.reviews.each do |review| %>
+
+  <li class="user-rating">
+    <% if review.rating == 1 %>
+      <p>⭐</p>
+    <% elsif review.rating == 2 %>
+      <p>⭐⭐</p>
+    <% elsif review.rating == 3 %>
+      <p>⭐⭐⭐</p>
+    <% elsif review.rating == 4 %>
+      <p>⭐⭐⭐⭐</p>
+    <% else %>
+      <p>⭐⭐⭐⭐⭐</p>
+    <% end %>
+    <em><%= review.content %></em>
+  </li>
+
+<% end %>
+</ul>
